@@ -4,7 +4,7 @@
 
 def main(data: str) -> list[list[int]]:
     # Сплитим данные по переводу строки
-    rows = data.strip().split('\n')
+    rows = data.strip().split("\n")
 
     # Ребра и вершины
     edges = []
@@ -20,24 +20,18 @@ def main(data: str) -> list[list[int]]:
     vertices = sorted(vertices)
     num_verts = len(vertices)
 
-    mat = [ [0] * num_verts for _ in range(num_verts)]
+    mat = [[0] * num_verts for _ in range(num_verts)]
 
     for v1, v2 in edges:
-        i , j = vertices.index(v1), vertices.index(v2)
+        i, j = vertices.index(v1), vertices.index(v2)
         mat[i][j] = mat[j][i] = 1
 
     return mat
 
 
-
-
-
-
-
-
 if __name__ == "__main__":
 
-    data_path = ('task0.csv')
+    data_path = "task0.csv"
     with open(data_path, "r") as file:
         input_data = file.read()
     result = main(input_data)
